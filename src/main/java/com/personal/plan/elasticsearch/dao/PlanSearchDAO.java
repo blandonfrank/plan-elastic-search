@@ -28,7 +28,7 @@ import java.util.Map;
 public class PlanSearchDAO {
     private final ElasticsearchOperations operations;
 
-    public PlanSearchDAO(ObjectMapper objectMapper, ElasticsearchOperations operations) {
+    public PlanSearchDAO(ElasticsearchOperations operations) {
         this.operations = operations;
     }
 
