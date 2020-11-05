@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
+/**
+ * Controller to search for a plan based on a given search criteria.
+ */
 @RestController
 @RequestMapping("/api/v1/plans")
 @CrossOrigin(origins = {"*"})
@@ -31,6 +34,16 @@ public class PlanSearchController {
         this.planSearchService = planSearchService;
     }
 
+    /**
+     * End point to search for a plan based on a given criteria. All fields are optional, but at the very least one
+     * field is expected to performed a search
+     * @param planName
+     * @param sponsorName
+     * @param sponsorState
+     * @param page
+     * @param size
+     * @return
+     */
     @GetMapping(path = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<String, Object>> getPlan(@RequestParam(value = "planName", required = false) String planName,
                                                        @RequestParam(value = "sponsorName", required = false) String sponsorName,
