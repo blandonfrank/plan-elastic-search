@@ -51,7 +51,8 @@ public class PlanSearchDAO {
     }
 
     /**
-     * Helper method to build the build search query based on a search criteria
+     * Helper method to build a search query based on a search criteria. This is dynamic enough that it can be used
+     * to build a complicated query as long as they use the same operator and match
      * @param searchCriteria
      * @param page
      * @return
