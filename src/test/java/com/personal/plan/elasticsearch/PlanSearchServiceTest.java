@@ -15,6 +15,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.mockito.Mockito.when;
+
 @ExtendWith(MockitoExtension.class)
 public class PlanSearchServiceTest {
 
@@ -45,10 +47,12 @@ public class PlanSearchServiceTest {
         Map<String, String> searchCriteria = new HashMap<>();
         searchCriteria.put("PLAN_NAME", planName);
 
-//        //when
-//        Map<String, Object> actualResponse = planSearchService.searchPlan(planName, "","",pageableMock);
+        //when
+        when(planSearchService.searchPlan(planName, "","",pageableMock)).thenReturn(expectedResponse);
 
-        //assert(actualResponse.get("plans")).equals(actualResponse.get("plans"));
+        Map<String, Object> actualResponse = planSearchService.searchPlan(planName, "","",pageableMock);
+
+       assert(expectedResponse.equals(actualResponse));
 
     }
 }
